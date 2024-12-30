@@ -60,6 +60,9 @@
 		FA5F32F22D1F176E00988343 /* CircularProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5F32F12D1F176E00988343 /* CircularProfileImageView.swift */; };
 		FA5F32F42D202CC100988343 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5F32F32D202CC100988343 /* Date+Extensions.swift */; };
 		FA5F32F62D21A1ED00988343 /* MediaAttachmentPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5F32F52D21A1ED00988343 /* MediaAttachmentPreview.swift */; };
+		FA5F32F82D22FC5A00988343 /* PhotosPickerItem+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5F32F72D22FC5A00988343 /* PhotosPickerItem+Extensions.swift */; };
+		FA5F32FA2D22FEA700988343 /* MediaPickerItem_Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5F32F92D22FEA700988343 /* MediaPickerItem_Types.swift */; };
+		FA5F32FC2D2305D400988343 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5F32FB2D2305D400988343 /* URL+Extensions.swift */; };
 		FAC822652CD923F3003AA0E9 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FAC822642CD923F3003AA0E9 /* FirebaseAuth */; };
 		FAC822672CD923F3003AA0E9 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = FAC822662CD923F3003AA0E9 /* FirebaseDatabase */; };
 		FAC822692CD923F3003AA0E9 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = FAC822682CD923F3003AA0E9 /* FirebaseMessaging */; };
@@ -120,6 +123,9 @@
 		FA5F32F12D1F176E00988343 /* CircularProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProfileImageView.swift; sourceTree = "<group>"; };
 		FA5F32F32D202CC100988343 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		FA5F32F52D21A1ED00988343 /* MediaAttachmentPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaAttachmentPreview.swift; sourceTree = "<group>"; };
+		FA5F32F72D22FC5A00988343 /* PhotosPickerItem+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotosPickerItem+Extensions.swift"; sourceTree = "<group>"; };
+		FA5F32F92D22FEA700988343 /* MediaPickerItem_Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPickerItem_Types.swift; sourceTree = "<group>"; };
+		FA5F32FB2D2305D400988343 /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +165,8 @@
 			children = (
 				FA5F326E2D1F16F100988343 /* String+Extensions.swift */,
 				FA5F32F32D202CC100988343 /* Date+Extensions.swift */,
+				FA5F32F72D22FC5A00988343 /* PhotosPickerItem+Extensions.swift */,
+				FA5F32FB2D2305D400988343 /* URL+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -288,6 +296,7 @@
 			children = (
 				FA5F32922D1F16F100988343 /* MessageItem.swift */,
 				FA5F32932D1F16F100988343 /* MessageItems+Types.swift */,
+				FA5F32F92D22FEA700988343 /* MediaPickerItem_Types.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -569,6 +578,7 @@
 				FA5F32CF2D1F16F100988343 /* MessageService.swift in Sources */,
 				FA5F32D02D1F16F100988343 /* UserItem.swift in Sources */,
 				FA5F32D12D1F16F100988343 /* ChitChatAppApp.swift in Sources */,
+				FA5F32FC2D2305D400988343 /* URL+Extensions.swift in Sources */,
 				FA5F32D22D1F16F100988343 /* AuthHeaderView.swift in Sources */,
 				FA5F32D32D1F16F100988343 /* AuthTextField.swift in Sources */,
 				FA5F32D42D1F16F100988343 /* String+Extensions.swift in Sources */,
@@ -601,6 +611,8 @@
 				FA5F32ED2D1F16F100988343 /* SettingsItemView.swift in Sources */,
 				FA5F32EE2D1F16F100988343 /* SignUpScreen.swift in Sources */,
 				FA5F32EF2D1F16F100988343 /* ChatRoomViewModel.swift in Sources */,
+				FA5F32FA2D22FEA700988343 /* MediaPickerItem_Types.swift in Sources */,
+				FA5F32F82D22FC5A00988343 /* PhotosPickerItem+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
