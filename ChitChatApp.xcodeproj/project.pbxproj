@@ -63,6 +63,7 @@
 		FA5F32F82D22FC5A00988343 /* PhotosPickerItem+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5F32F72D22FC5A00988343 /* PhotosPickerItem+Extensions.swift */; };
 		FA5F32FA2D22FEA700988343 /* MediaPickerItem_Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5F32F92D22FEA700988343 /* MediaPickerItem_Types.swift */; };
 		FA5F32FC2D2305D400988343 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5F32FB2D2305D400988343 /* URL+Extensions.swift */; };
+		FA5F32FE2D26E18000988343 /* MediaPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5F32FD2D26E18000988343 /* MediaPlayerView.swift */; };
 		FAC822652CD923F3003AA0E9 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FAC822642CD923F3003AA0E9 /* FirebaseAuth */; };
 		FAC822672CD923F3003AA0E9 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = FAC822662CD923F3003AA0E9 /* FirebaseDatabase */; };
 		FAC822692CD923F3003AA0E9 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = FAC822682CD923F3003AA0E9 /* FirebaseMessaging */; };
@@ -126,6 +127,7 @@
 		FA5F32F72D22FC5A00988343 /* PhotosPickerItem+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotosPickerItem+Extensions.swift"; sourceTree = "<group>"; };
 		FA5F32F92D22FEA700988343 /* MediaPickerItem_Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPickerItem_Types.swift; sourceTree = "<group>"; };
 		FA5F32FB2D2305D400988343 /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
+		FA5F32FD2D26E18000988343 /* MediaPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPlayerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -474,6 +476,7 @@
 			isa = PBXGroup;
 			children = (
 				FA5F32F12D1F176E00988343 /* CircularProfileImageView.swift */,
+				FA5F32FD2D26E18000988343 /* MediaPlayerView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -612,6 +615,7 @@
 				FA5F32EE2D1F16F100988343 /* SignUpScreen.swift in Sources */,
 				FA5F32EF2D1F16F100988343 /* ChatRoomViewModel.swift in Sources */,
 				FA5F32FA2D22FEA700988343 /* MediaPickerItem_Types.swift in Sources */,
+				FA5F32FE2D26E18000988343 /* MediaPlayerView.swift in Sources */,
 				FA5F32F82D22FC5A00988343 /* PhotosPickerItem+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
