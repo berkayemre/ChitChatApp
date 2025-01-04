@@ -10,6 +10,7 @@ import Firebase
 import FirebaseStorage
 
 enum FirebaseConstants {
+    static let StorageRef = Storage.storage().reference()
     private static let DatabaseRef = Database
         .database(url: "https://chitchatapp-973d7-default-rtdb.europe-west1.firebasedatabase.app")
         .reference()

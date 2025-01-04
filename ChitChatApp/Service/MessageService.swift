@@ -43,11 +43,21 @@ struct MessageService {
                     messages.sort { $0.timeStamp < $1.timeStamp }
                     completion(messages)
                 }
-                
             }
         } withCancel: { error in
             print("Failed to get messages for \(channel.title)")
         }
-
     }
+}
+
+struct MessageUploadParams {
+    let channel: ChannelItem
+    let text: String
+    let type: MessageType
+    let attachment: MediaAttachment
+    var thumbnail: String?
+    var videoURL: String?
+    var sender: UserItem
+    var audioURL: String?
+    var audioDuration: TimeInterval?
 }
