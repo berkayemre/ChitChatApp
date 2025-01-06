@@ -67,6 +67,8 @@
 		FA5F33002D2848F800988343 /* VoiceRecorderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5F32FF2D2848F800988343 /* VoiceRecorderService.swift */; };
 		FA5F33022D29736D00988343 /* TimeInterval+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5F33012D29736D00988343 /* TimeInterval+Extensions.swift */; };
 		FA5F33042D297FE500988343 /* FirebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5F33032D297FE500988343 /* FirebaseHelper.swift */; };
+		FA5F33062D2C251000988343 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5F33052D2C251000988343 /* UIApplication+Extensions.swift */; };
+		FA5F33082D2C299500988343 /* UIWindowScene+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5F33072D2C299500988343 /* UIWindowScene+Extensions.swift */; };
 		FAC822652CD923F3003AA0E9 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FAC822642CD923F3003AA0E9 /* FirebaseAuth */; };
 		FAC822672CD923F3003AA0E9 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = FAC822662CD923F3003AA0E9 /* FirebaseDatabase */; };
 		FAC822692CD923F3003AA0E9 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = FAC822682CD923F3003AA0E9 /* FirebaseMessaging */; };
@@ -134,6 +136,8 @@
 		FA5F32FF2D2848F800988343 /* VoiceRecorderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceRecorderService.swift; sourceTree = "<group>"; };
 		FA5F33012D29736D00988343 /* TimeInterval+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Extensions.swift"; sourceTree = "<group>"; };
 		FA5F33032D297FE500988343 /* FirebaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseHelper.swift; sourceTree = "<group>"; };
+		FA5F33052D2C251000988343 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
+		FA5F33072D2C299500988343 /* UIWindowScene+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindowScene+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +180,8 @@
 				FA5F32F72D22FC5A00988343 /* PhotosPickerItem+Extensions.swift */,
 				FA5F32FB2D2305D400988343 /* URL+Extensions.swift */,
 				FA5F33012D29736D00988343 /* TimeInterval+Extensions.swift */,
+				FA5F33052D2C251000988343 /* UIApplication+Extensions.swift */,
+				FA5F33072D2C299500988343 /* UIWindowScene+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -575,6 +581,7 @@
 			files = (
 				FA5F33042D297FE500988343 /* FirebaseHelper.swift in Sources */,
 				FA5F32C22D1F16F100988343 /* FirebaseConstants.swift in Sources */,
+				FA5F33062D2C251000988343 /* UIApplication+Extensions.swift in Sources */,
 				FA5F32C32D1F16F100988343 /* ChannelCreationTextView.swift in Sources */,
 				FA5F32C42D1F16F100988343 /* BubbleImageView.swift in Sources */,
 				FA5F32F22D1F176E00988343 /* CircularProfileImageView.swift in Sources */,
@@ -596,6 +603,7 @@
 				FA5F32FC2D2305D400988343 /* URL+Extensions.swift in Sources */,
 				FA5F32D22D1F16F100988343 /* AuthHeaderView.swift in Sources */,
 				FA5F32D32D1F16F100988343 /* AuthTextField.swift in Sources */,
+				FA5F33082D2C299500988343 /* UIWindowScene+Extensions.swift in Sources */,
 				FA5F32D42D1F16F100988343 /* String+Extensions.swift in Sources */,
 				FA5F32D52D1F16F100988343 /* ChannelItem.swift in Sources */,
 				FA5F32D62D1F16F100988343 /* UpdatesTabScreen.swift in Sources */,

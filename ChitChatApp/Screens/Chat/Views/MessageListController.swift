@@ -38,6 +38,7 @@ final class MessageListController: UIViewController {
     private let viewModel: ChatRoomViewModel
     private var subscriptions = Set<AnyCancellable>()
     private let cellIdentifier = "MessageListControllerCells"
+   
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.delegate = self
@@ -45,6 +46,9 @@ final class MessageListController: UIViewController {
         tableView.separatorStyle = .none
         tableView.backgroundColor = UIColor.gray.withAlphaComponent(0.4)
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.contentInset = .init(top: 0, left: 0, bottom: 60, right: 0)
+        tableView.scrollIndicatorInsets = .init(top: 0, left: 0, bottom: 60, right: 0)
+        tableView.keyboardDismissMode = .onDrag
         return tableView
     }()
     
@@ -79,9 +83,16 @@ final class MessageListController: UIViewController {
             .sink { [weak self] _ in
                 self?.tableView.reloadData()
             }.store(in: &subscriptions)
+        
+        viewModel.$scrollToBottomRequest
+            .debounce(for: .milliseconds(delay), scheduler: DispatchQueue.main)
+            .sink { [weak self] scrollRequest in
+                if scrollRequest.scroll {
+                    self?.tableView.scrollToLastRow(at: .bottom, animated: scrollRequest.isAnimated)
+                }
+            }.store(in: &subscriptions)
+        }
     }
-    
-}
 
 extension MessageListController: UITableViewDelegate, UITableViewDataSource {
     
@@ -121,6 +132,17 @@ extension MessageListController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+}
+
+private extension UITableView {
+    func scrollToLastRow(at scrollPosition: UITableView.ScrollPosition, animated: Bool) {
+        guard numberOfRows(inSection: numberOfSections - 1) > 0 else { return }
+        
+        let lastSectionIndex = numberOfSections - 1
+        let lastRowIndex = numberOfRows(inSection: lastSectionIndex) - 1
+        let lastRowIndexPath = IndexPath(row: lastRowIndex, section: lastSectionIndex)
+        scrollToRow(at: lastRowIndexPath, at: scrollPosition, animated: animated)
     }
 }
 
