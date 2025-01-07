@@ -150,6 +150,10 @@ final class ChatRoomViewModel: ObservableObject {
         }
     }
         
+    private func sendVoiceMessage(text: String, _ attachment: MediaAttachment) {
+        
+    }
+    
     private func scrollToBottom(isAnimated: Bool) {
         scrollToBottomRequest.scroll = true
         scrollToBottomRequest.isAnimated = isAnimated
