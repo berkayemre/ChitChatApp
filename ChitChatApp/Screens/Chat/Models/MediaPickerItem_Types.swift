@@ -50,7 +50,18 @@ struct MediaAttachment: Identifiable {
                 return voiceURL
         }
     }
+    var audioDuration: TimeInterval? {
+        switch type {
+            case .audio(_, let duration):
+                return duration
+                
+            default:
+                return nil
+        }
+    }
 }
+
+
 
 enum MediaAttachmentType: Equatable {
     case photo(_ thumbnail: UIImage)
