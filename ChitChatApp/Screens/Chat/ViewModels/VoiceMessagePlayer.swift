@@ -6,3 +6,9 @@
 //
 
 import Foundation
+import AVFoundation
+
+final class VoiceMessagePlayer: ObservableObject {
+    
+    private var player: AVPlayer?
+}
