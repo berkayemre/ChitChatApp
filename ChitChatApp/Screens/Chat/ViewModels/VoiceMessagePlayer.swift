@@ -11,4 +11,12 @@ import AVFoundation
 final class VoiceMessagePlayer: ObservableObject {
     
     private var player: AVPlayer?
+    
+    func playAudio(from url: URL) {
+        
+    }
+    
+    func pauseAudio() {
+        
+    }
 }
