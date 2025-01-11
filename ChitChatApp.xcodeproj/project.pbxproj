@@ -74,6 +74,7 @@
 		FAC822672CD923F3003AA0E9 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = FAC822662CD923F3003AA0E9 /* FirebaseDatabase */; };
 		FAC822692CD923F3003AA0E9 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = FAC822682CD923F3003AA0E9 /* FirebaseMessaging */; };
 		FAC8226B2CD923F3003AA0E9 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = FAC8226A2CD923F3003AA0E9 /* FirebaseStorage */; };
+		FAEF706D2D32C728004DC5CE /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEF706C2D32C728004DC5CE /* Haptics.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -140,6 +141,7 @@
 		FA5F33052D2C251000988343 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		FA5F33072D2C299500988343 /* UIWindowScene+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindowScene+Extensions.swift"; sourceTree = "<group>"; };
 		FA5F33092D302E1000988343 /* VoiceMessagePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceMessagePlayer.swift; sourceTree = "<group>"; };
+		FAEF706C2D32C728004DC5CE /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +195,7 @@
 			children = (
 				FA5F32702D1F16F100988343 /* CustomModifiers.swift */,
 				FA5F33032D297FE500988343 /* FirebaseHelper.swift */,
+				FAEF706C2D32C728004DC5CE /* Haptics.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -594,6 +597,7 @@
 				FA5F33022D29736D00988343 /* TimeInterval+Extensions.swift in Sources */,
 				FA5F32C72D1F16F100988343 /* LoginScreen.swift in Sources */,
 				FA5F32C82D1F16F100988343 /* TextInputArea.swift in Sources */,
+				FAEF706D2D32C728004DC5CE /* Haptics.swift in Sources */,
 				FA5F32C92D1F16F100988343 /* RootScreenModel.swift in Sources */,
 				FA5F32CA2D1F16F100988343 /* UserService.swift in Sources */,
 				FA5F32CB2D1F16F100988343 /* SettingsItem.swift in Sources */,
