@@ -20,8 +20,9 @@ struct ChannelItem: Identifiable, Hashable {
     var members: [UserItem]
     private var thumbnailUrl: String?
     let createdBy: String
+    let lastMessageType: MessageType
     
-    var isGroupchat: Bool {
+    var isGroupChat: Bool {
         return membersCount > 2
     }
     
@@ -30,7 +31,7 @@ struct ChannelItem: Identifiable, Hashable {
             return thumbnailUrl
         }
         
-        if isGroupchat == false {
+        if isGroupChat == false {
             return membersExcludingMe.first?.profileImageUrl
         }
         
@@ -47,7 +48,7 @@ struct ChannelItem: Identifiable, Hashable {
             return name
         }
         
-        if isGroupchat {
+        if isGroupChat {
             return groupMemberNames
         } else {
             return membersExcludingMe.first?.username ?? "Unknown"
@@ -79,7 +80,22 @@ struct ChannelItem: Identifiable, Hashable {
         return members.count == membersCount
     }
     
-    static let placeholder = ChannelItem.init(id: "1", lastMessage: "Hello World", creationDate: Date(), lastMessageTimeStamp: Date(), membersCount: 2, adminUids: [], membersUids: [], members: [], createdBy: "")
+    var previewMessage: String {
+        switch lastMessageType {
+            case .admin:
+                return "Newly Created Chat!"
+            case .text:
+                return lastMessage
+            case .photo:
+                return "Photo Message"
+            case .video:
+                return "Video Message"
+            case .audio:
+                return "Voice Message"
+        }
+    }
+    
+    static let placeholder = ChannelItem.init(id: "1", lastMessage: "Hello World", creationDate: Date(), lastMessageTimeStamp: Date(), membersCount: 2, adminUids: [], membersUids: [], members: [], createdBy: "", lastMessageType: .text)
         
 }
 
@@ -98,6 +114,8 @@ extension ChannelItem {
         self.membersUids = dict[.membersUids] as? [String] ?? []
         self.members = dict[.members] as? [UserItem] ?? []
         self.createdBy = dict[.createdBy] as? String ?? ""
+        let msgTypeValue = dict[.lastMessageType] as? String ?? "text"
+        self.lastMessageType = MessageType(msgTypeValue) ?? .text
     }
 }
 
