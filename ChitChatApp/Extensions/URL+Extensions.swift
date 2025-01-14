@@ -17,7 +17,7 @@ extension URL {
     
     func generateVideoThumbnail() async throws -> UIImage? {
         
-        let asset = AVAsset(url: self)
+        let asset = AVURLAsset(url: self)
         let imageGenerator = AVAssetImageGenerator(asset: asset)
         imageGenerator.appliesPreferredTrackTransform = true
         let time = CMTime(seconds: 1, preferredTimescale: 60)
