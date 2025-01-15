@@ -56,11 +56,30 @@ struct NewGroupSetUpScreen: View {
         }
     }
     
+    private func profileImage() -> some View {
+        Button {
+            
+        }label: {
+            ZStack {
+                Image(systemName: "camera.fill")
+                    .imageScale(.large)
+            }
+            .frame(width: 60, height: 60)
+            .background(Color(.systemGray6))
+            .clipShape(Circle())
+        }
+    }
+    
     @ToolbarContentBuilder
     private func trailingNavItem() -> some ToolbarContent {
         ToolbarItem(placement: .topBarTrailing) {
             Button("Create") {
-                viewModel.createGroupChannel(channelName, completion: onCreate)
+                if viewModel.isDirectChannel {
+                    guard let chatPartner = viewModel.selectedChatPartners.first else { return }
+                    viewModel.createDirectChannel(chatPartner, completion: onCreate)
+                } else {
+                    viewModel.createGroupChannel(channelName, completion: onCreate)
+                }
             }
             .bold()
             .disabled(viewModel.disableNextButton)
@@ -68,19 +87,7 @@ struct NewGroupSetUpScreen: View {
     }
 }
 
-private func profileImage() -> some View {
-    Button {
-        
-    }label: {
-        ZStack {
-            Image(systemName: "camera.fill")
-                .imageScale(.large)
-        }
-        .frame(width: 60, height: 60)
-        .background(Color(.systemGray6))
-        .clipShape(Circle())
-    }
-}
+
 
 
 #Preview {
