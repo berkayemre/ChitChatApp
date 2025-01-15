@@ -6,17 +6,23 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct SettingsTabScreen: View {
     
     @State private var searchText = ""
+    @StateObject private var viewModel = SettingsTabViewModel()
+    private var currentUser: UserItem
+    
+    init(_ currentUser: UserItem) {
+        self.currentUser = currentUser
+    }
     
     var body: some View {
         NavigationStack{
             List{
                 
-                SettingsHeaderView()
-                
+                SettingsHeaderView(viewModel: viewModel, currentUser)
                 Section {
                     SettingsItemView(item: .broadCastLists)
                     SettingsItemView(item: .starredMessages)
@@ -60,23 +66,45 @@ extension SettingsTabScreen {
 }
 
 private struct SettingsHeaderView: View {
+    private let currentUser: UserItem
+    @ObservedObject private var viewModel: SettingsTabViewModel
+    
+    init(viewModel: SettingsTabViewModel, _ currentUser: UserItem) {
+        self.viewModel = viewModel
+        self.currentUser = currentUser
+    }
+    
     var body: some View {
         Section {
             HStack {
-                Circle()
-                    .frame(width: 55, height: 55)
+                profileImageView()
                 
                 userInfoTextView()
                 
             }
-            SettingsItemView(item: .avatar)
+            PhotosPicker(selection: $viewModel.selectedPhotoItem, matching: .not(.videos)) {
+                SettingsItemView(item: .avatar)
+            }
+        }
+    }
+    
+    @ViewBuilder
+    private func profileImageView() -> some View {
+        if let profilePhoto = viewModel.profilePhoto {
+            Image(uiImage: profilePhoto.thumbnail)
+                .resizable()
+                .scaledToFill()
+                .frame(width: 55, height: 55)
+                .clipShape(Circle())
+        } else {
+            CircularProfileImageView(nil, size: .custom(55))
         }
     }
     
     private func userInfoTextView() -> some View {
         VStack(alignment: .leading, spacing: 0) {
             HStack {
-                Text("Emre Aslan")
+                Text(currentUser.username)
                     .font(.title2)
                 
                 Spacer()
@@ -88,7 +116,7 @@ private struct SettingsHeaderView: View {
                     .background(Color(.systemGray5))
                     .clipShape(Circle())
             }
-            Text("Hey there! I'm using ChitChatApp.")
+            Text(currentUser.bioUnwrapped)
                 .font(.callout)
                 .foregroundStyle(.secondary)
         }
@@ -97,5 +125,5 @@ private struct SettingsHeaderView: View {
 }
 
 #Preview {
-    SettingsTabScreen()
+    SettingsTabScreen(.placeholder)
 }

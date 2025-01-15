@@ -76,6 +76,7 @@
 		FAC8226B2CD923F3003AA0E9 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = FAC8226A2CD923F3003AA0E9 /* FirebaseStorage */; };
 		FAEF706D2D32C728004DC5CE /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEF706C2D32C728004DC5CE /* Haptics.swift */; };
 		FAEF706F2D33F81E004DC5CE /* BubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEF706E2D33F81E004DC5CE /* BubbleView.swift */; };
+		FAEF70722D380966004DC5CE /* SettingsTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEF70712D380966004DC5CE /* SettingsTabViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -144,6 +145,7 @@
 		FA5F33092D302E1000988343 /* VoiceMessagePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceMessagePlayer.swift; sourceTree = "<group>"; };
 		FAEF706C2D32C728004DC5CE /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
 		FAEF706E2D33F81E004DC5CE /* BubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleView.swift; sourceTree = "<group>"; };
+		FAEF70712D380966004DC5CE /* SettingsTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTabViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -424,6 +426,7 @@
 			isa = PBXGroup;
 			children = (
 				FA5F32AC2D1F16F100988343 /* Models */,
+				FAEF70702D38092A004DC5CE /* ViewModel */,
 				FA5F32AF2D1F16F100988343 /* Views */,
 			);
 			path = Settings;
@@ -503,6 +506,14 @@
 				FA5F32FD2D26E18000988343 /* MediaPlayerView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		FAEF70702D38092A004DC5CE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FAEF70712D380966004DC5CE /* SettingsTabViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -625,6 +636,7 @@
 				FA5F32DA2D1F16F100988343 /* ChatPartnerRowView.swift in Sources */,
 				FA5F32DB2D1F16F100988343 /* CustomModifiers.swift in Sources */,
 				FA5F32DC2D1F16F100988343 /* SelectedChatPartnerView.swift in Sources */,
+				FAEF70722D380966004DC5CE /* SettingsTabViewModel.swift in Sources */,
 				FA5F32DD2D1F16F100988343 /* BubbleAudioView.swift in Sources */,
 				FA5F330A2D302E1000988343 /* VoiceMessagePlayer.swift in Sources */,
 				FA5F32DE2D1F16F100988343 /* AdminMessageTextView.swift in Sources */,
