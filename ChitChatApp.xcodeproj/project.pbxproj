@@ -77,6 +77,7 @@
 		FAEF706D2D32C728004DC5CE /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEF706C2D32C728004DC5CE /* Haptics.swift */; };
 		FAEF706F2D33F81E004DC5CE /* BubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEF706E2D33F81E004DC5CE /* BubbleView.swift */; };
 		FAEF70722D380966004DC5CE /* SettingsTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEF70712D380966004DC5CE /* SettingsTabViewModel.swift */; };
+		FAEF70752D39454B004DC5CE /* AlertKit in Frameworks */ = {isa = PBXBuildFile; productRef = FAEF70742D39454B004DC5CE /* AlertKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -155,6 +156,7 @@
 			files = (
 				FAC822692CD923F3003AA0E9 /* FirebaseMessaging in Frameworks */,
 				FAC8226B2CD923F3003AA0E9 /* FirebaseStorage in Frameworks */,
+				FAEF70752D39454B004DC5CE /* AlertKit in Frameworks */,
 				FAC822672CD923F3003AA0E9 /* FirebaseDatabase in Frameworks */,
 				FAC822652CD923F3003AA0E9 /* FirebaseAuth in Frameworks */,
 				FA5F31E92D1F13DA00988343 /* Kingfisher in Frameworks */,
@@ -538,6 +540,7 @@
 				FAC822682CD923F3003AA0E9 /* FirebaseMessaging */,
 				FAC8226A2CD923F3003AA0E9 /* FirebaseStorage */,
 				FA5F31E82D1F13DA00988343 /* Kingfisher */,
+				FAEF70742D39454B004DC5CE /* AlertKit */,
 			);
 			productName = ChitChatApp;
 			productReference = FA1545862CB946660049B412 /* ChitChatApp.app */;
@@ -570,6 +573,7 @@
 			packageReferences = (
 				FAC822632CD923F3003AA0E9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				FA5F31E72D1F13DA00988343 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				FAEF70732D39454B004DC5CE /* XCRemoteSwiftPackageReference "AlertKit" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = FA1545872CB946660049B412 /* Products */;
@@ -884,6 +888,14 @@
 				minimumVersion = 11.4.0;
 			};
 		};
+		FAEF70732D39454B004DC5CE /* XCRemoteSwiftPackageReference "AlertKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparrowcode/AlertKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.9;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -911,6 +923,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FAC822632CD923F3003AA0E9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		FAEF70742D39454B004DC5CE /* AlertKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAEF70732D39454B004DC5CE /* XCRemoteSwiftPackageReference "AlertKit" */;
+			productName = AlertKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
