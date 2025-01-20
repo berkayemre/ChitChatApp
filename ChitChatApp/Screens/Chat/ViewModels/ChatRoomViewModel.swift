@@ -38,11 +38,19 @@ final class ChatRoomViewModel: ObservableObject {
         return mediaAttachments.isEmpty && textMessage.isEmpty
     }
     
+    private var isPreviewMode: Bool {
+        return ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1"
+    }
+    
     init(_ channel: ChannelItem) {
         self.channel = channel
         listenToAuthState()
         onPhotoPickerSelection()
         setUpVoiceRecorderListeners()
+        
+        if isPreviewMode {
+            messages = MessageItem.stubMessages
+        }
     }
     
     deinit {

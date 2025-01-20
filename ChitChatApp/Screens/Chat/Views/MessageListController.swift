@@ -40,6 +40,8 @@ final class MessageListController: UIViewController {
     private let cellIdentifier = "MessageListControllerCells"
     private var lastScrollPosition: String?
     
+    private var startingFrame: CGRect?
+    
     private lazy var pullToRefresh: UIRefreshControl = {
         let pullToRefresh = UIRefreshControl()
         pullToRefresh.addTarget(self, action: #selector(refreshData), for: .valueChanged)
@@ -171,19 +173,27 @@ extension MessageListController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        UIApplication.dismissKeyboard()
-        let messageItem = viewModel.messages[indexPath.row]
-        switch messageItem.type {
-                
-            case .video:
-                guard let videoURLString = messageItem.videoURL,
-                        let videoURL = URL(string: videoURLString)
-                else { return }
-                viewModel.showMediaPlayer(videoURL)
-                
-            default:
-                break
-        }
+        
+        guard let selectedCell = collectionView.cellForItem(at: indexPath) else { return }
+        selectedCell.backgroundColor = .red
+        startingFrame = selectedCell.superview?.convert(selectedCell.frame, to: nil)
+        guard let snapshotView = selectedCell.snapshotView(afterScreenUpdates: false) else { return }
+        let focusedView = UIView(frame: startingFrame ?? .zero)
+        focusedView.backgroundColor = .yellow
+//        snapshotView.center.y = view.center.y
+//        UIApplication.dismissKeyboard()
+//        let messageItem = viewModel.messages[indexPath.row]
+//        switch messageItem.type {
+//                
+//            case .video:
+//                guard let videoURLString = messageItem.videoURL,
+//                        let videoURL = URL(string: videoURLString)
+//                else { return }
+//                viewModel.showMediaPlayer(videoURL)
+//                
+//            default:
+//                break
+//        }
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
