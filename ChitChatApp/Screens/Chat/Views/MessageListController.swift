@@ -180,6 +180,12 @@ extension MessageListController: UICollectionViewDelegate, UICollectionViewDataS
         guard let snapshotView = selectedCell.snapshotView(afterScreenUpdates: false) else { return }
         let focusedView = UIView(frame: startingFrame ?? .zero)
         focusedView.backgroundColor = .yellow
+        let blurEffect = UIBlurEffect(style: .regular)
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        guard let keyWindow = UIWindowScene.current?.keyWindow else { return }
+        keyWindow.addSubview(blurView)
+        keyWindow.addSubview(focusedView)
+        blurView.frame = keyWindow.frame
 //        snapshotView.center.y = view.center.y
 //        UIApplication.dismissKeyboard()
 //        let messageItem = viewModel.messages[indexPath.row]
