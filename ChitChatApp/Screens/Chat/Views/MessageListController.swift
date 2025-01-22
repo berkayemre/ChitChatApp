@@ -41,6 +41,9 @@ final class MessageListController: UIViewController {
     private var lastScrollPosition: String?
     
     private var startingFrame: CGRect?
+    private var blurView: UIVisualEffectView?
+    private var focusedView: UIView?
+    private var highlightedCell: UICollectionViewCell?
     
     private lazy var pullToRefresh: UIRefreshControl = {
         let pullToRefresh = UIRefreshControl()
@@ -175,17 +178,36 @@ extension MessageListController: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         guard let selectedCell = collectionView.cellForItem(at: indexPath) else { return }
-        selectedCell.backgroundColor = .red
         startingFrame = selectedCell.superview?.convert(selectedCell.frame, to: nil)
-        guard let snapshotView = selectedCell.snapshotView(afterScreenUpdates: false) else { return }
-        let focusedView = UIView(frame: startingFrame ?? .zero)
-        focusedView.backgroundColor = .yellow
+        guard let snapshotCell = selectedCell.snapshotView(afterScreenUpdates: false) else { return }
+        focusedView = UIView(frame: startingFrame ?? .zero)
+        guard let focusedView else { return }
+        focusedView.isUserInteractionEnabled = false
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissContextMenu))
         let blurEffect = UIBlurEffect(style: .regular)
-        let blurView = UIVisualEffectView(effect: blurEffect)
+        blurView = UIVisualEffectView(effect: blurEffect)
+        guard let blurView else { return }
+        blurView.contentView.isUserInteractionEnabled = true
+        blurView.contentView.addGestureRecognizer(tapGesture)
+        blurView.alpha = 0
+        highlightedCell = selectedCell
+        highlightedCell?.alpha = 0
+        
         guard let keyWindow = UIWindowScene.current?.keyWindow else { return }
+        
         keyWindow.addSubview(blurView)
         keyWindow.addSubview(focusedView)
+        focusedView.addSubview(snapshotCell)
         blurView.frame = keyWindow.frame
+        
+        
+        UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1,options: .curveEaseIn) {
+            blurView.alpha = 1
+            focusedView.center.y = keyWindow.center.y
+            snapshotCell.frame = focusedView.bounds
+        }
+//        snapshotCell.frame = selectedCell.frame
 //        snapshotView.center.y = view.center.y
 //        UIApplication.dismissKeyboard()
 //        let messageItem = viewModel.messages[indexPath.row]
@@ -200,6 +222,21 @@ extension MessageListController: UICollectionViewDelegate, UICollectionViewDataS
 //            default:
 //                break
 //        }
+    }
+    
+    @objc private func dismissContextMenu() {
+        UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1,options: .curveEaseOut) {[weak self] in
+            guard let self = self else { return }
+            focusedView?.frame = startingFrame ?? .zero
+        } completion: { [weak self] _ in
+            self?.highlightedCell?.alpha = 1
+            self?.blurView?.removeFromSuperview()
+            self?.focusedView?.removeFromSuperview()
+            
+            self?.highlightedCell = nil
+            self?.blurView = nil
+            self?.focusedView = nil
+        }
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
