@@ -71,6 +71,7 @@
 		FA5F33082D2C299500988343 /* UIWindowScene+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5F33072D2C299500988343 /* UIWindowScene+Extensions.swift */; };
 		FA5F330A2D302E1000988343 /* VoiceMessagePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5F33092D302E1000988343 /* VoiceMessagePlayer.swift */; };
 		FA8706F42D42B20500F8359E /* ReactionPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8706F32D42B20500F8359E /* ReactionPickerView.swift */; };
+		FA8706F62D43E40A00F8359E /* MessageMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8706F52D43E40A00F8359E /* MessageMenuView.swift */; };
 		FAC822652CD923F3003AA0E9 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FAC822642CD923F3003AA0E9 /* FirebaseAuth */; };
 		FAC822672CD923F3003AA0E9 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = FAC822662CD923F3003AA0E9 /* FirebaseDatabase */; };
 		FAC822692CD923F3003AA0E9 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = FAC822682CD923F3003AA0E9 /* FirebaseMessaging */; };
@@ -146,6 +147,7 @@
 		FA5F33072D2C299500988343 /* UIWindowScene+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindowScene+Extensions.swift"; sourceTree = "<group>"; };
 		FA5F33092D302E1000988343 /* VoiceMessagePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceMessagePlayer.swift; sourceTree = "<group>"; };
 		FA8706F32D42B20500F8359E /* ReactionPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionPickerView.swift; sourceTree = "<group>"; };
+		FA8706F52D43E40A00F8359E /* MessageMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageMenuView.swift; sourceTree = "<group>"; };
 		FAEF706C2D32C728004DC5CE /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
 		FAEF706E2D33F81E004DC5CE /* BubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleView.swift; sourceTree = "<group>"; };
 		FAEF70712D380966004DC5CE /* SettingsTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTabViewModel.swift; sourceTree = "<group>"; };
@@ -355,6 +357,7 @@
 				FA5F32F52D21A1ED00988343 /* MediaAttachmentPreview.swift */,
 				FAEF706E2D33F81E004DC5CE /* BubbleView.swift */,
 				FA8706F32D42B20500F8359E /* ReactionPickerView.swift */,
+				FA8706F52D43E40A00F8359E /* MessageMenuView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -643,6 +646,7 @@
 				FA5F32DA2D1F16F100988343 /* ChatPartnerRowView.swift in Sources */,
 				FA5F32DB2D1F16F100988343 /* CustomModifiers.swift in Sources */,
 				FA5F32DC2D1F16F100988343 /* SelectedChatPartnerView.swift in Sources */,
+				FA8706F62D43E40A00F8359E /* MessageMenuView.swift in Sources */,
 				FAEF70722D380966004DC5CE /* SettingsTabViewModel.swift in Sources */,
 				FA5F32DD2D1F16F100988343 /* BubbleAudioView.swift in Sources */,
 				FA5F330A2D302E1000988343 /* VoiceMessagePlayer.swift in Sources */,
