@@ -270,7 +270,10 @@ extension MessageListController {
         guard let focusedView, let startingFrame else { return }
         let shrinkCell = shrinkCell(startingFrame.height)
         
-        let reactionPickerView = ReactionPickerView(message: message)
+        let reactionPickerView = ReactionPickerView(message: message) {[weak self] reaction in
+            self?.dismissContextMenu()
+            self?.viewModel.addReaction(reaction, to: message)
+        }
         
         let reactionHostVC = UIHostingController(rootView: reactionPickerView)
         reactionHostVC.view.backgroundColor = .clear
