@@ -387,9 +387,15 @@ private func sendTextMessage(_ text: String) {
     }
     
     func addReaction(_ reaction: Reaction, to message: MessageItem) {
+        
         guard let currentUser else { return }
-        MessageService.addReaction(reaction, to: message, in: channel, from: currentUser) { emojiCount in
-            print("")
+        guard let index = messages.firstIndex(where: { $0.id == message.id }) else { return }
+        
+        MessageService.addReaction(reaction, to: message, in: channel, from: currentUser) {[weak self] emojiCount in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                self?.messages[index].reactions[reaction.emoji] = emojiCount
+                self?.messages[index].userReactions[currentUser.uid] = reaction.emoji
+            }
         }
     }
 }

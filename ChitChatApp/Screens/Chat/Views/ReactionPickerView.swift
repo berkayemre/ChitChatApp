@@ -34,7 +34,7 @@ struct ReactionPickerView: View {
                 reactionButton(item, at: index)
             }
         }
-        .padding(.horizontal, 15)
+        .padding(.horizontal, 10)
         .padding(.vertical, 10)
         .background(backgroundView())
         .shadow(color: Color.gray.opacity(0.2), radius: 4, x: 0, y: 0)
@@ -57,6 +57,7 @@ struct ReactionPickerView: View {
         Button {
             guard item.reaction != .more else { return }
             onTapHandler(item.reaction)
+            Haptic.impact(.medium)
         } label: {
             buttonBody(item, at: index)
                 .scaleEffect(emojiStates[index].isAnimating ? 1 : 0.01)
@@ -93,14 +94,19 @@ struct ReactionPickerView: View {
         } else {
             Text(item.reaction.emoji)
                 .font(.system(size: 30))
-//                .background(selectedEmojiIndicator(item.reaction))
+                .background(selectedEmojiIndicator(item.reaction))
         }
     }
     
+    @ViewBuilder
     private func selectedEmojiIndicator(_ reaction: Reaction) -> some View {
-        Color(.systemGray5)
-            .frame(width: 45, height: 45)
-            .clipShape(Circle())
+        if message.currentUserHasReacted,
+            let currentUserReaction = message.currentUserReaction,
+            currentUserReaction == reaction.emoji {
+            Color(.systemGray5)
+                .frame(width: 45, height: 45)
+                .clipShape(Circle())
+        }
     }
     
     private func backgroundView() -> some View {
