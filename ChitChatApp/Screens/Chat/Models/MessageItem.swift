@@ -26,7 +26,7 @@ struct MessageItem: Identifiable {
     var videoURL: String?
     var audioURL: String?
     var audioDuration: TimeInterval?
-    var reaction: [emoji: emojiCount] = [:]
+    var reactions: [emoji: emojiCount] = [:]
     var userReactions: [userId: emoji] = [:]
     
     var direction: MessageDirection {
@@ -88,6 +88,10 @@ struct MessageItem: Identifiable {
     
     var reactionAnchor: Alignment {
         return direction == .sent ? .bottomTrailing : .bottomLeading
+    }
+    
+    var hasReactions: Bool {
+        return !reactions.isEmpty
     }
     
     func containsSameOwner(as message: MessageItem) -> Bool {

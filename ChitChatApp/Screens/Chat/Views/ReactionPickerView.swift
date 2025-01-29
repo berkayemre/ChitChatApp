@@ -93,7 +93,7 @@ struct ReactionPickerView: View {
         } else {
             Text(item.reaction.emoji)
                 .font(.system(size: 30))
-                .background(selectedEmojiIndicator(item.reaction))
+//                .background(selectedEmojiIndicator(item.reaction))
         }
     }
     
