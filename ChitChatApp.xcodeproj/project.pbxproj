@@ -150,6 +150,8 @@
 		FA8706F32D42B20500F8359E /* ReactionPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionPickerView.swift; sourceTree = "<group>"; };
 		FA8706F52D43E40A00F8359E /* MessageMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageMenuView.swift; sourceTree = "<group>"; };
 		FA8706F72D4969A500F8359E /* MessageReactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageReactionView.swift; sourceTree = "<group>"; };
+		FA8707A42D63B87000F8359E /* ChitChatApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChitChatApp.entitlements; sourceTree = "<group>"; };
+		FA8707A52D63B8B700F8359E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		FAEF706C2D32C728004DC5CE /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
 		FAEF706E2D33F81E004DC5CE /* BubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleView.swift; sourceTree = "<group>"; };
 		FAEF70712D380966004DC5CE /* SettingsTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTabViewModel.swift; sourceTree = "<group>"; };
@@ -495,6 +497,8 @@
 		FA5F32BE2D1F16F100988343 /* ChitChatApp */ = {
 			isa = PBXGroup;
 			children = (
+				FA8707A52D63B8B700F8359E /* Info.plist */,
+				FA8707A42D63B87000F8359E /* ChitChatApp.entitlements */,
 				FA5F32F02D1F172C00988343 /* Components */,
 				FA5F326F2D1F16F100988343 /* Extensions */,
 				FA5F32712D1F16F100988343 /* Helpers */,
@@ -807,11 +811,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ChitChatApp/ChitChatApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ChitChatApp/Preview Content\"";
+				DEVELOPMENT_TEAM = LWJ722XA3Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ChitChatApp/Info.plist;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Access to this let's you record voice messages";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -836,11 +843,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ChitChatApp/ChitChatApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ChitChatApp/Preview Content\"";
+				DEVELOPMENT_TEAM = LWJ722XA3Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ChitChatApp/Info.plist;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Access to this let's you record voice messages";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
