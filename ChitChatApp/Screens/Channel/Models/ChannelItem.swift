@@ -95,6 +95,19 @@ struct ChannelItem: Identifiable, Hashable {
         }
     }
     
+    func getPushNotificationTitle(_ senderName: String) -> String {
+        
+        if let groupName = name {
+            return "\(senderName) in \(groupName)"
+        }
+        
+        if isGroupChat {
+            return "\(senderName) in a \"Group Chat\""
+        } else {
+            return senderName
+        }
+    }
+    
     static let placeholder = ChannelItem.init(id: "1", lastMessage: "Hello World", creationDate: Date(), lastMessageTimeStamp: Date(), membersCount: 2, adminUids: [], membersUids: [], members: [], createdBy: "", lastMessageType: .text)
         
 }

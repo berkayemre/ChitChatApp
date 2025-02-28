@@ -21,11 +21,16 @@ struct MessageService {
             .lastMessageType: MessageType.text.title
         ]
         
+        let channelNameAtSend = channel.getPushNotificationTitle(currentUser.username)
+        let chatPartnerFCMTokens = channel.membersExcludingMe.compactMap { $0.fcmToken }
+        
         let messageDict: [String: Any] = [
             .text: textMessage,
             .type: MessageType.text.title,
             .timeStamp: timeStamp,
             .ownerUid: currentUser.uid,
+            .channelNameAtSend: channelNameAtSend,
+            .chatPartnersFCMTokens: chatPartnerFCMTokens
         ]
         
         FirebaseConstants.ChannelsRef.child(channel.id).updateChildValues(channelDict)
@@ -44,11 +49,15 @@ struct MessageService {
             .lastMessageType: params.type.title
         ]
         
+        let channelNameAtSend = channel.getPushNotificationTitle(params.sender.username)
+        
         var messageDict: [String: Any] = [
             .text: params.text,
             .type: params.type.title,
             .timeStamp: timeStamp,
             .ownerUid: params.ownerUID,
+            .channelNameAtSend: channelNameAtSend,
+            .chatPartnersFCMTokens: params.chatPartnerFCMTokens
         ]
         
         messageDict[.thumbnailUrl] = params.thumbnailURL ?? nil
@@ -210,5 +219,9 @@ struct MessageUploadParams {
     var thumbnailHeight: CGFloat? {
         guard type == .photo || type == .video else { return nil }
         return attachment.thumbnail.size.height
+    }
+    
+    var chatPartnerFCMTokens: [String] {
+        return channel.membersExcludingMe.compactMap { $0.fcmToken }
     }
 }
