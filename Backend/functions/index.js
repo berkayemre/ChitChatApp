@@ -39,7 +39,18 @@ exports.sendNotificationsForMessages = functions.database
   for(const fcmToken of chatPartnerFCMTokens) {
     await sendPushNotifications(notificationMessage, senderName, fcmToken)
   }
-})
+});
+
+exports.sendMessageReactionNotifications = functions.https.onCall (
+  (async (data, context) => {
+    const fcmToken = data.fcmToken
+    const channelNameAtSend = data.channelNameAtSend
+    const notificationMessage = data.notificationMessage
+
+    await sendPushNotifications(notificationMessage, senderName, fcmToken);
+
+  }
+));
 
 listenForNewMessages = functions
 .database

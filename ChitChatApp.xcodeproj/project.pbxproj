@@ -73,6 +73,7 @@
 		FA8706F42D42B20500F8359E /* ReactionPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8706F32D42B20500F8359E /* ReactionPickerView.swift */; };
 		FA8706F62D43E40A00F8359E /* MessageMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8706F52D43E40A00F8359E /* MessageMenuView.swift */; };
 		FA8706F82D4969A500F8359E /* MessageReactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8706F72D4969A500F8359E /* MessageReactionView.swift */; };
+		FA870AA92D76428500F8359E /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = FA870AA82D76428500F8359E /* FirebaseFunctions */; };
 		FAC822652CD923F3003AA0E9 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FAC822642CD923F3003AA0E9 /* FirebaseAuth */; };
 		FAC822672CD923F3003AA0E9 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = FAC822662CD923F3003AA0E9 /* FirebaseDatabase */; };
 		FAC822692CD923F3003AA0E9 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = FAC822682CD923F3003AA0E9 /* FirebaseMessaging */; };
@@ -163,6 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAC822692CD923F3003AA0E9 /* FirebaseMessaging in Frameworks */,
+				FA870AA92D76428500F8359E /* FirebaseFunctions in Frameworks */,
 				FAC8226B2CD923F3003AA0E9 /* FirebaseStorage in Frameworks */,
 				FAEF70752D39454B004DC5CE /* AlertKit in Frameworks */,
 				FAC822672CD923F3003AA0E9 /* FirebaseDatabase in Frameworks */,
@@ -178,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				FA5F32BE2D1F16F100988343 /* ChitChatApp */,
+				FA870AA72D76428500F8359E /* Frameworks */,
 				FA1545872CB946660049B412 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -523,6 +526,13 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		FA870AA72D76428500F8359E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FAEF70702D38092A004DC5CE /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -554,6 +564,7 @@
 				FAC8226A2CD923F3003AA0E9 /* FirebaseStorage */,
 				FA5F31E82D1F13DA00988343 /* Kingfisher */,
 				FAEF70742D39454B004DC5CE /* AlertKit */,
+				FA870AA82D76428500F8359E /* FirebaseFunctions */,
 			);
 			productName = ChitChatApp;
 			productReference = FA1545862CB946660049B412 /* ChitChatApp.app */;
@@ -925,6 +936,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FA5F31E72D1F13DA00988343 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		FA870AA82D76428500F8359E /* FirebaseFunctions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAC822632CD923F3003AA0E9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFunctions;
 		};
 		FAC822642CD923F3003AA0E9 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;

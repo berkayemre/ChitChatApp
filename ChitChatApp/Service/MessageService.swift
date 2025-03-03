@@ -8,6 +8,7 @@
 import Foundation
 import Firebase
 import FirebaseDatabase
+import FirebaseFunctions
 
 struct MessageService {
     
@@ -185,7 +186,34 @@ struct MessageService {
         
         increaseCountViaTransaction(at: reactionsRef) { emojiCount in
             FirebaseConstants.MessagesRef.child(channel.id).child(message.id).child(.userReactions).child(currentUser.uid).setValue(reaction.emoji)
+            
+            let channelNameAtSend = channel.getPushNotificationTitle(currentUser.username)
+            sendReactionNotification(for: message, emoji: reaction.emoji, channelNameAtSend: channelNameAtSend)
             completion(emojiCount)
+        }
+    }
+    
+    static func sendReactionNotification(for message: MessageItem, emoji: String, channelNameAtSend: String) {
+        
+        guard let fcmToken = message.sender?.fcmToken else { return }
+        
+        var notificationMessage: String
+        if message.type == .text {
+            notificationMessage = "Reacted \(emoji) to your \(message.text)"
+        } else {
+            notificationMessage = "Reacted \(emoji) to your \(message.type.title) message"
+        }
+        
+        let payload: [String: Any] = [
+            .fcmToken: fcmToken,
+            .channelNameAtSend: channelNameAtSend,
+            .notificationMessage: notificationMessage
+        ]
+        
+        Functions.functions().httpsCallable("sendMessageReactionNotifications").call(payload) { result, error in
+            if let error {
+                print("Failed to sendMessageReactionNotifications: \(error.localizedDescription)")
+            }
         }
     }
 }
