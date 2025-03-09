@@ -258,6 +258,9 @@ private func sendTextMessage(_ text: String) {
         MessageService.listenForNewMessages(in: channel) {[weak self] newMessage in
             self?.messages.append(newMessage)
             self?.scrollToBottom(isAnimated: false)
+            
+            guard let self = self else { return }
+            MessageService.resetUnReadCountForMembers(in: self.channel)
         }
     }
     

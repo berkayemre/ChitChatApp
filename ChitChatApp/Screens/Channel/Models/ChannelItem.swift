@@ -21,6 +21,7 @@ struct ChannelItem: Identifiable, Hashable {
     private var thumbnailUrl: String?
     let createdBy: String
     let lastMessageType: MessageType
+    var unreadCount: Int = 0
     
     var isGroupChat: Bool {
         return membersCount > 2
@@ -146,5 +147,4 @@ extension String {
     static let createdBy = "createdBy"
     static let lastMessageType = "lastMessageType"
     static let notificationMessage = "notificationMessage"
-
 }
