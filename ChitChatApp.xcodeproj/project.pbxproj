@@ -70,6 +70,7 @@
 		FA5F33062D2C251000988343 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5F33052D2C251000988343 /* UIApplication+Extensions.swift */; };
 		FA5F33082D2C299500988343 /* UIWindowScene+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5F33072D2C299500988343 /* UIWindowScene+Extensions.swift */; };
 		FA5F330A2D302E1000988343 /* VoiceMessagePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5F33092D302E1000988343 /* VoiceMessagePlayer.swift */; };
+		FA6A88262D84766700717949 /* PublicChannelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6A88252D84766700717949 /* PublicChannelItem.swift */; };
 		FA8706F42D42B20500F8359E /* ReactionPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8706F32D42B20500F8359E /* ReactionPickerView.swift */; };
 		FA8706F62D43E40A00F8359E /* MessageMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8706F52D43E40A00F8359E /* MessageMenuView.swift */; };
 		FA8706F82D4969A500F8359E /* MessageReactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8706F72D4969A500F8359E /* MessageReactionView.swift */; };
@@ -148,6 +149,7 @@
 		FA5F33052D2C251000988343 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		FA5F33072D2C299500988343 /* UIWindowScene+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindowScene+Extensions.swift"; sourceTree = "<group>"; };
 		FA5F33092D302E1000988343 /* VoiceMessagePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceMessagePlayer.swift; sourceTree = "<group>"; };
+		FA6A88252D84766700717949 /* PublicChannelItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicChannelItem.swift; sourceTree = "<group>"; };
 		FA8706F32D42B20500F8359E /* ReactionPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionPickerView.swift; sourceTree = "<group>"; };
 		FA8706F52D43E40A00F8359E /* MessageMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageMenuView.swift; sourceTree = "<group>"; };
 		FA8706F72D4969A500F8359E /* MessageReactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageReactionView.swift; sourceTree = "<group>"; };
@@ -459,6 +461,7 @@
 		FA5F32B32D1F16F100988343 /* Updates */ = {
 			isa = PBXGroup;
 			children = (
+				FA6A88242D84764200717949 /* Models */,
 				FA5F32B22D1F16F100988343 /* Views */,
 			);
 			path = Updates;
@@ -524,6 +527,14 @@
 				FA5F32FD2D26E18000988343 /* MediaPlayerView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		FA6A88242D84764200717949 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FA6A88252D84766700717949 /* PublicChannelItem.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		FA870AA72D76428500F8359E /* Frameworks */ = {
@@ -656,6 +667,7 @@
 				FAEF706F2D33F81E004DC5CE /* BubbleView.swift in Sources */,
 				FA5F33082D2C299500988343 /* UIWindowScene+Extensions.swift in Sources */,
 				FA5F32D42D1F16F100988343 /* String+Extensions.swift in Sources */,
+				FA6A88262D84766700717949 /* PublicChannelItem.swift in Sources */,
 				FA5F32D52D1F16F100988343 /* ChannelItem.swift in Sources */,
 				FA5F32D62D1F16F100988343 /* UpdatesTabScreen.swift in Sources */,
 				FA5F32F62D21A1ED00988343 /* MediaAttachmentPreview.swift in Sources */,

@@ -10,6 +10,7 @@ import SwiftUI
 struct UpdatesTabScreen: View {
     
     @State private var searchText = ""
+    let currentUser: UserItem
     
     var body: some View {
         
@@ -21,7 +22,7 @@ struct UpdatesTabScreen: View {
                     StatusSectionHeader()
                        .listRowBackground(Color.clear)
                        .listRowSeparator(.hidden)
-                    StatusSection()
+                    StatusSection(currentUser: currentUser)
                     
                 }header: {
                     Text("Status")
@@ -32,7 +33,7 @@ struct UpdatesTabScreen: View {
                 }
                 
                 Section{
-                    RecentUpdatesItemView()
+                    RecentUpdatesItemView(currentUser: currentUser)
                     
                 }header: {
                     Text("Recent Updates")
@@ -108,10 +109,10 @@ private struct StatusSectionHeader: View {
 }
 
 private struct StatusSection: View {
+    let currentUser: UserItem
     var body: some View {
         HStack {
-            Circle()
-                .frame(width: UpdatesTabScreen.Constant.imageDimen, height: UpdatesTabScreen.Constant.imageDimen)
+            CircularProfileImageView(currentUser.profileImageUrl, size: .custom(55))
         
             VStack(alignment: .leading) {
                 Text("My Status")
@@ -156,14 +157,13 @@ private struct StatusSection: View {
 
 
 private struct RecentUpdatesItemView: View {
+    let currentUser: UserItem
     var body: some View {
         HStack {
-            Circle()
-                .frame(width: UpdatesTabScreen.Constant.imageDimen, height: UpdatesTabScreen.Constant.imageDimen)
-          
+            CircularProfileImageView(currentUser.profileImageUrl, size: .custom(55))
             
             VStack(alignment: .leading) {
-                Text("Emre Aslan")
+                Text(currentUser.username)
                     .font(.callout)
                     .bold()
                 
@@ -186,8 +186,9 @@ private struct ChannelListView: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack{
-                    ForEach(0..<5) { _ in
-                        SuggestedChannelItemView()
+                    ForEach(PublicChannelItem.placeholders) { channel in
+                        SuggestedChannelItemView(channel: channel)
+                            .frame(width: 150)
                     }
                 }
             }
@@ -203,12 +204,16 @@ private struct ChannelListView: View {
 }
 
 private struct SuggestedChannelItemView: View {
+    
+    let channel: PublicChannelItem
+    
     var body: some View {
         VStack {
-            Circle()
-                .frame(width: UpdatesTabScreen.Constant.imageDimen, height: UpdatesTabScreen.Constant.imageDimen)
+            CircularProfileImageView(channel.imageUrl, size: .custom(55))
             
-            Text("Fenerbahçe S.K.")
+            Text(channel.title)
+                .lineLimit(1)
+                .bold()
             
             Button {
                 
@@ -229,5 +234,5 @@ private struct SuggestedChannelItemView: View {
 }
 
 #Preview {
-    UpdatesTabScreen()
+    UpdatesTabScreen(currentUser: .placeholder)
 }

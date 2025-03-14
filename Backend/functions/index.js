@@ -21,7 +21,7 @@ exports.sendNotificationsForMessages = functions.database
 .ref(channelMessageRef)
 .onCreate(async (snapshot, context) => {
   const data = snapshot.val()
-  const message = data.text
+  const textMessage = data.text
   const senderName = data.channelNameAtSend
   const chatPartnerFCMTokens = data.chatPartnerFCMTokens
   const messageType = data.type
@@ -41,16 +41,16 @@ exports.sendNotificationsForMessages = functions.database
   }
 });
 
-exports.sendMessageReactionNotifications = functions.https.onCall (
-  (async (data, context) => {
-    const fcmToken = data.fcmToken
-    const channelNameAtSend = data.channelNameAtSend
-    const notificationMessage = data.notificationMessage
+exports.sendMessageReactionNotifications = functions.https.onCall(
+  async (data, context) => {
+    const fcmToken = data.fcmToken;
+    const channelNameAtSend = data.channelNameAtSend;
+    const notificationMessage = data.notificationMessage;
 
-    await sendPushNotifications(notificationMessage, senderName, fcmToken);
+    await sendPushNotifications(notificationMessage, channelNameAtSend, fcmToken);
 
   }
-));
+);
 
 listenForNewMessages = functions
 .database
@@ -71,8 +71,7 @@ listenForNewMessages = functions
  await getChannelMembers(channelId, message, senderName)
 });
 
-// Create and deploy your first functions
-// https://firebase.google.com/docs/functions/get-started
+
 
 
  async function getChannelMembers(channelId, message, senderName) {
@@ -128,4 +127,4 @@ listenForNewMessages = functions
   } catch (error) {
     console.error("Error sending message:", error)
   }
- }
+}

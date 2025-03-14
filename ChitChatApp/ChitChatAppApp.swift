@@ -9,6 +9,7 @@
 import SwiftUI
 import Firebase
 import FirebaseAuth
+import UserNotifications
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication,
