@@ -71,6 +71,8 @@
 		FA5F33082D2C299500988343 /* UIWindowScene+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5F33072D2C299500988343 /* UIWindowScene+Extensions.swift */; };
 		FA5F330A2D302E1000988343 /* VoiceMessagePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5F33092D302E1000988343 /* VoiceMessagePlayer.swift */; };
 		FA6A88262D84766700717949 /* PublicChannelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6A88252D84766700717949 /* PublicChannelItem.swift */; };
+		FA6A88292D8717ED00717949 /* StreamVideo in Frameworks */ = {isa = PBXBuildFile; productRef = FA6A88282D8717ED00717949 /* StreamVideo */; };
+		FA6A882B2D8717ED00717949 /* StreamVideoSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = FA6A882A2D8717ED00717949 /* StreamVideoSwiftUI */; };
 		FA8706F42D42B20500F8359E /* ReactionPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8706F32D42B20500F8359E /* ReactionPickerView.swift */; };
 		FA8706F62D43E40A00F8359E /* MessageMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8706F52D43E40A00F8359E /* MessageMenuView.swift */; };
 		FA8706F82D4969A500F8359E /* MessageReactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8706F72D4969A500F8359E /* MessageReactionView.swift */; };
@@ -168,9 +170,11 @@
 				FAC822692CD923F3003AA0E9 /* FirebaseMessaging in Frameworks */,
 				FA870AA92D76428500F8359E /* FirebaseFunctions in Frameworks */,
 				FAC8226B2CD923F3003AA0E9 /* FirebaseStorage in Frameworks */,
+				FA6A882B2D8717ED00717949 /* StreamVideoSwiftUI in Frameworks */,
 				FAEF70752D39454B004DC5CE /* AlertKit in Frameworks */,
 				FAC822672CD923F3003AA0E9 /* FirebaseDatabase in Frameworks */,
 				FAC822652CD923F3003AA0E9 /* FirebaseAuth in Frameworks */,
+				FA6A88292D8717ED00717949 /* StreamVideo in Frameworks */,
 				FA5F31E92D1F13DA00988343 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -576,6 +580,8 @@
 				FA5F31E82D1F13DA00988343 /* Kingfisher */,
 				FAEF70742D39454B004DC5CE /* AlertKit */,
 				FA870AA82D76428500F8359E /* FirebaseFunctions */,
+				FA6A88282D8717ED00717949 /* StreamVideo */,
+				FA6A882A2D8717ED00717949 /* StreamVideoSwiftUI */,
 			);
 			productName = ChitChatApp;
 			productReference = FA1545862CB946660049B412 /* ChitChatApp.app */;
@@ -609,6 +615,7 @@
 				FAC822632CD923F3003AA0E9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				FA5F31E72D1F13DA00988343 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				FAEF70732D39454B004DC5CE /* XCRemoteSwiftPackageReference "AlertKit" */,
+				FA6A88272D8717ED00717949 /* XCRemoteSwiftPackageReference "stream-video-swift" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = FA1545872CB946660049B412 /* Products */;
@@ -925,6 +932,14 @@
 				minimumVersion = 8.1.3;
 			};
 		};
+		FA6A88272D8717ED00717949 /* XCRemoteSwiftPackageReference "stream-video-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/GetStream/stream-video-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.18.0;
+			};
+		};
 		FAC822632CD923F3003AA0E9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -948,6 +963,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FA5F31E72D1F13DA00988343 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		FA6A88282D8717ED00717949 /* StreamVideo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA6A88272D8717ED00717949 /* XCRemoteSwiftPackageReference "stream-video-swift" */;
+			productName = StreamVideo;
+		};
+		FA6A882A2D8717ED00717949 /* StreamVideoSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA6A88272D8717ED00717949 /* XCRemoteSwiftPackageReference "stream-video-swift" */;
+			productName = StreamVideoSwiftUI;
 		};
 		FA870AA82D76428500F8359E /* FirebaseFunctions */ = {
 			isa = XCSwiftPackageProductDependency;
