@@ -6,7 +6,7 @@
 
 - Gerçek zamanlı bire bir mesajlaşma
 - Apple Push Notification (APNs) ile anlık bildirimler
-- Stream Chat SDK ile güçlü ve güvenilir sohbet altyapısı
+- Stream Chat SDK ile güçlü ve güvenilir görüntülü sohbet altyapısı
 - Firebase Authentication ile kullanıcı yönetimi
 - Google Cloud Firestore ile veri saklama
 - Firebase Cloud Messaging (FCM) ile bildirim gönderme
