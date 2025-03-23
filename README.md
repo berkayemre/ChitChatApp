@@ -25,7 +25,6 @@
 | **Google Cloud Services**       | Firebase altyapısını barındıran servisler |
 | **MVVM**                        | Katmanlı yazılım mimarisi |
 | **AutoLayout**                  | Responsive kullanıcı arayüzü |
-| **CocoaPods**                   | Bağımlılık yönetimi |
 
 ## 📦 Kurulum
 
