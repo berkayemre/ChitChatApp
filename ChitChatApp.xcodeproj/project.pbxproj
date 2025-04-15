@@ -73,6 +73,7 @@
 		FA6A88262D84766700717949 /* PublicChannelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6A88252D84766700717949 /* PublicChannelItem.swift */; };
 		FA6A88292D8717ED00717949 /* StreamVideo in Frameworks */ = {isa = PBXBuildFile; productRef = FA6A88282D8717ED00717949 /* StreamVideo */; };
 		FA6A882B2D8717ED00717949 /* StreamVideoSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = FA6A882A2D8717ED00717949 /* StreamVideoSwiftUI */; };
+		FA6A882D2D8EE62200717949 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6A882C2D8EE62200717949 /* Secrets.swift */; };
 		FA8706F42D42B20500F8359E /* ReactionPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8706F32D42B20500F8359E /* ReactionPickerView.swift */; };
 		FA8706F62D43E40A00F8359E /* MessageMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8706F52D43E40A00F8359E /* MessageMenuView.swift */; };
 		FA8706F82D4969A500F8359E /* MessageReactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8706F72D4969A500F8359E /* MessageReactionView.swift */; };
@@ -152,6 +153,7 @@
 		FA5F33072D2C299500988343 /* UIWindowScene+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindowScene+Extensions.swift"; sourceTree = "<group>"; };
 		FA5F33092D302E1000988343 /* VoiceMessagePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceMessagePlayer.swift; sourceTree = "<group>"; };
 		FA6A88252D84766700717949 /* PublicChannelItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicChannelItem.swift; sourceTree = "<group>"; };
+		FA6A882C2D8EE62200717949 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		FA8706F32D42B20500F8359E /* ReactionPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionPickerView.swift; sourceTree = "<group>"; };
 		FA8706F52D43E40A00F8359E /* MessageMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageMenuView.swift; sourceTree = "<group>"; };
 		FA8706F72D4969A500F8359E /* MessageReactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageReactionView.swift; sourceTree = "<group>"; };
@@ -500,6 +502,7 @@
 			isa = PBXGroup;
 			children = (
 				FA5F32B82D1F16F100988343 /* FirebaseConstants.swift */,
+				FA6A882C2D8EE62200717949 /* Secrets.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -507,8 +510,8 @@
 		FA5F32BE2D1F16F100988343 /* ChitChatApp */ = {
 			isa = PBXGroup;
 			children = (
-				FA8707A52D63B8B700F8359E /* Info.plist */,
 				FA8707A42D63B87000F8359E /* ChitChatApp.entitlements */,
+				FA8707A52D63B8B700F8359E /* Info.plist */,
 				FA5F32F02D1F172C00988343 /* Components */,
 				FA5F326F2D1F16F100988343 /* Extensions */,
 				FA5F32712D1F16F100988343 /* Helpers */,
@@ -701,6 +704,7 @@
 				FA8706F42D42B20500F8359E /* ReactionPickerView.swift in Sources */,
 				FA5F32E82D1F16F100988343 /* NewGroupSetUpScreen.swift in Sources */,
 				FA5F32E92D1F16F100988343 /* CallsTabScreen.swift in Sources */,
+				FA6A882D2D8EE62200717949 /* Secrets.swift in Sources */,
 				FA5F32F42D202CC100988343 /* Date+Extensions.swift in Sources */,
 				FA5F32EA2D1F16F100988343 /* ChatPartnerPickerScreen.swift in Sources */,
 				FA5F32EB2D1F16F100988343 /* MessageItem.swift in Sources */,

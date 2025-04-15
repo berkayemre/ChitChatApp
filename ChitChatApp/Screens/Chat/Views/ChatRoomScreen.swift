@@ -109,9 +109,11 @@ extension ChatRoomScreen {
     }
     private func startVideoCall() {
         guard callViewModel.call == nil else { return }
-//        let callMembers = channel.membersExcludingMe
-        callViewModel.joinCall(callType: .default, callId: "SDGlbswCKYBK")
-//        callViewModel.startCall(callType: .default, callId: "SDGlbswCKYBK", members: <#T##[Member]#>)
+        let callMembers = channel.membersExcludingMe.map {
+            Member(user: User(id: $0.uid, name: $0.username, imageURL: URL(string: $0.profileImageUrl ?? ""))
+            )
+        }
+        callViewModel.startCall(callType: .default, callId: UUID().uuidString, members: callMembers, ring: true)
     }
 }
 

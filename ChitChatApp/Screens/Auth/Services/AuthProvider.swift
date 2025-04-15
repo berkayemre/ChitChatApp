@@ -9,6 +9,7 @@ import Foundation
 import Combine
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseFunctions
 import StreamVideo
 
 enum AuthState {
@@ -22,6 +23,8 @@ protocol AuthProvider {
     func login(with email: String, and password: String) async throws
     func createAccount(for username: String, with email: String, and password: String) async throws
     func logout() async throws
+    func getStreamUserToken(for userId: String) async -> UserToken?
+    func revokeStreamUserToken() async
 }
 
 enum AuthError: Error {
@@ -54,6 +57,7 @@ final class AuthManager: AuthProvider {
     var authState = CurrentValueSubject<AuthState, Never>(.pending)
     
     @Published var streamVideo: StreamVideo?
+    private lazy var functions = Functions.functions()
     
     func autoLogin() async {
         if Auth.auth().currentUser == nil {
@@ -68,7 +72,10 @@ final class AuthManager: AuthProvider {
     func login(with email: String, and password: String) async throws {
         do {
             let authResult = try await Auth.auth().signIn(withEmail: email, password: password)
+            let streamToken = await getStreamUserToken(for: authResult.user.uid)
             fetchCurrentUserInfo {[weak self] currentUser in
+                var updatedUser = currentUser
+                updatedUser.streamToken = streamToken?.rawValue
                 self?.setUp(currentUser)
             }
             print("Successfully Signed In \(authResult.user.email ?? "")")
@@ -82,8 +89,10 @@ final class AuthManager: AuthProvider {
         do {
             let authResult = try await Auth.auth().createUser(withEmail: email, password: password)
             let uid = authResult.user.uid
-            let newUser = UserItem(uid: uid, username: username, email: email)
+            var newUser = UserItem(uid: uid, username: username, email: email)
             try await saveUserInfoDatabase(user: newUser)
+            let streamToken = await getStreamUserToken(for: authResult.user.uid)
+            newUser.streamToken = streamToken?.rawValue
             setUp(newUser)
         }catch{
             print("Failed to Create an Account:  \(error.localizedDescription)")
@@ -93,12 +102,36 @@ final class AuthManager: AuthProvider {
     
     func logout() async throws {
         do {
+            await revokeStreamUserToken()
+            streamVideo = nil
             try Auth.auth().signOut()
             authState.send(.loggedOut)
             print("Successfully logged out!")
         }catch{
             print("Failed to log out current user:  \(error.localizedDescription)")
-
+        }
+    }
+    
+    func getStreamUserToken(for userId: String) async -> UserToken? {
+        do {
+            let getStreamUserToken = try await functions.httpsCallable(CloudFunctions.getStreamUserToken).call()
+            guard let currentUserStreamToken = getStreamUserToken.data as? String else { return nil }
+            let streamToken = UserToken(rawValue: currentUserStreamToken)
+            streamToken.store(for: userId)
+            return streamToken
+        } catch {
+            print("Failed to getStreamUserToken from backend: \(error.localizedDescription)")
+            return nil
+        }
+    }
+    
+    func revokeStreamUserToken() async {
+        do {
+            guard let currentUid = Auth.auth().currentUser?.uid else { return }
+            _ = try await functions.httpsCallable(CloudFunctions.revokeStreamUserToken).call()
+            try await FirebaseConstants.UserRef.child(currentUid).child(.streamToken).removeValue()
+        } catch {
+            print("Failed to revokeStreamUserToken from backend: \(error.localizedDescription)")
         }
     }
 }
@@ -136,10 +169,13 @@ extension AuthManager {
 
 extension AuthManager {
     private func setUpStreamVideo(for currentUser: UserItem) {
-        let apiKey = "kmfwcdtd9e63"
-        let user = User(id: "General_Grievous", name: "John")
-        let token = UserToken(rawValue: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL3Byb250by5nZXRzdHJlYW0uaW8iLCJzdWIiOiJ1c2VyL0dlbmVyYWxfR3JpZXZvdXMiLCJ1c2VyX2lkIjoiR2VuZXJhbF9Hcmlldm91cyIsInZhbGlkaXR5X2luX3NlY29uZHMiOjYwNDgwMCwiaWF0IjoxNzQxOTQ0OTI0LCJleHAiOjE3NDI1NDk3MjR9.hqjWI7-py_jOAWOA3ksLN_UUB_4r-qeDbwv7rw2C8sI")
-        streamVideo = StreamVideo(apiKey: apiKey, user: user, token: token)
+        guard streamVideo == nil else { return }
+        let streamUser = User(id: currentUser.uid, name: currentUser.username, imageURL: URL(string: currentUser.profileImageUrl ?? ""))
+        guard let streamToken = currentUser.streamToken else { return }
+        streamVideo = StreamVideo(apiKey: Secrets.apiKey, user: streamUser, token: UserToken(rawValue: streamToken))
+//        let user = User(id: "General_Grievous", name: "John")
+//        let token = UserToken(rawValue: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL3Byb250by5nZXRzdHJlYW0uaW8iLCJzdWIiOiJ1c2VyL0dlbmVyYWxfR3JpZXZvdXMiLCJ1c2VyX2lkIjoiR2VuZXJhbF9Hcmlldm91cyIsInZhbGlkaXR5X2luX3NlY29uZHMiOjYwNDgwMCwiaWF0IjoxNzQxOTQ0OTI0LCJleHAiOjE3NDI1NDk3MjR9.hqjWI7-py_jOAWOA3ksLN_UUB_4r-qeDbwv7rw2C8sI")
+//        streamVideo = StreamVideo(apiKey: Secrets.apiKey, user: user, token: token)
     }
 }
 
@@ -200,3 +236,9 @@ extension AuthManager {
     ]
 }
 
+private extension UserToken {
+    func store(for userId: String) {
+        FirebaseConstants.UserRef.child(userId).child(.streamToken).setValue(self.rawValue)
+    }
+        
+}

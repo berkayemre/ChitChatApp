@@ -14,6 +14,7 @@ struct UserItem: Identifiable, Hashable, Decodable {
     var bio: String? = nil
     var profileImageUrl: String? = nil
     var fcmToken: String?
+    var streamToken: String?
     
     var id: String {
         return uid
@@ -47,6 +48,7 @@ extension UserItem {
         self.bio = dictionary[.bio] as? String ??  nil
         self.profileImageUrl = dictionary[.profileImageUrl] as? String ?? nil
         self.fcmToken = dictionary[.fcmToken] as? String? ?? nil
+        self.streamToken = dictionary[.streamToken] as? String? ?? nil
     }
 }
 
@@ -57,4 +59,5 @@ extension String {
     static let bio = "bio"
     static let profileImageUrl = "profileImageUrl"
     static let fcmToken = "fcmToken"
+    static let streamToken = "streamToken"
 }
